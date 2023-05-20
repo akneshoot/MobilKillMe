@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.AnimatedVectorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -119,7 +120,7 @@ public class FirstFragment extends Fragment {
             }
         });
 
-        imageView = getView().findViewById(R.id.imageView9);
+        imageView = getView().findViewById(R.id.imageView);
         imageChange = new Imagechange(R.drawable.vocabulary);
 
         Button buttonChangeImage = getView().findViewById(R.id.buttonChangeImage);
@@ -162,7 +163,16 @@ public class FirstFragment extends Fragment {
 
             }
         });
-
+        imageView = view.findViewById(R.id.imageView);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AnimatedVectorDrawable drawable = (AnimatedVectorDrawable) imageView.getDrawable();
+                if (drawable != null) {
+                    drawable.start();
+                }
+            }
+        });
     }
 
 
