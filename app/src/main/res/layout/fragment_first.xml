@@ -40,6 +40,21 @@
                 app:layout_constraintVertical_bias="0.351"
                 tools:ignore="MissingConstraints" />
 
+            <Button
+                android:id="@+id/to_profile"
+                android:layout_width="220dp"
+                android:layout_height="60dp"
+                android:textColor="#354A00"
+                app:backgroundTint="#E3A43E"
+                android:text="Тут задание для 12 практики"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/Button1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.476"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/buttonChangeImage"
+                tools:ignore="MissingConstraints" />
+
             <EditText
                 android:id="@+id/editTextTextPersonName"
                 android:layout_width="wrap_content"
@@ -73,8 +88,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="207dp"
                 android:layout_height="310dp"
-                android:layout_below="@+id/textView"
-                android:layout_alignBottom="@+id/textView"
+
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:src="@drawable/vector_animation"
@@ -100,20 +114,6 @@
                 app:layout_constraintVertical_bias="0.516"
                 tools:ignore="MissingConstraints" />
 
-            <Button
-                android:id="@+id/subscribe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:textColor=" #354A00"
-                app:backgroundTint="#E3A43E"
-                android:text="Подписаться на наш канал"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.651" />
 
             <Button
                 android:id="@+id/Button1"
@@ -129,14 +129,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/not"
                 tools:ignore="MissingConstraints" />
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textView"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="94dp"
                 android:onClick="onClick"

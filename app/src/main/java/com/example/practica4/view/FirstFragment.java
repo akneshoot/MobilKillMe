@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -108,17 +109,7 @@ public class FirstFragment extends Fragment {
         });
         loadData();
 
-        Button button4 = getView().findViewById(R.id.subscribe);
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg) {
-                String query = editText.getText().toString();
-                String url = "https://t.me/" + query;
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(url));
-                startActivity(intent);
-            }
-        });
+
 
         imageView = getView().findViewById(R.id.imageView);
         imageChange = new Imagechange(R.drawable.vocabulary);
@@ -133,7 +124,14 @@ public class FirstFragment extends Fragment {
                 Log.d("Done", "Picture done!");
             }
         });
-
+        Button button_name = view.findViewById(R.id.to_profile);
+        button_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_newFragment, bundle);
+            }
+        });
         buttonChangeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

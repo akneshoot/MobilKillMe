@@ -10,6 +10,14 @@
         tools:layout="@layout/fragment_first">
 
         <action
+            android:id="@+id/action_firstFragment_to_newFragment"
+            app:destination="@id/newFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
             android:id="@+id/action_firstFragment_to_secondFragment"
             app:destination="@id/secondFragment"
             app:enterAnim="@anim/slide_in_right"
@@ -45,5 +53,10 @@
         android:name="com.example.practica4.view.ThirdFragment"
         android:label="Third Fragment"
         tools:layout="@layout/fragment_third" />
+    <fragment
+        android:id="@+id/newFragment"
+        android:name="com.example.practica4.view.NewFragment"
+        android:label="New Fragment"
+        tools:layout="@layout/fragment_new" />
 
 </navigation>
