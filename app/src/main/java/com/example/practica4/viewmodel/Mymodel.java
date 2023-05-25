@@ -10,6 +10,8 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.practica4.model.Arraydata;
+import com.example.practica4.model.DataItemModel;
+import com.example.practica4.model.DataRepository;
 import com.example.practica4.model.Repository;
 
 import java.io.InputStream;
@@ -112,5 +114,25 @@ public class Mymodel extends ViewModel {
         NUMBER += 1;
         repository.getHistory();
         System.out.println(repository.getAll() + "DB");
+    }
+    public Mymodel() {
+        dataRepository = new DataRepository();
+        imageData = new MutableLiveData<>();
+    }
+    private DataRepository dataRepository;
+    private MutableLiveData<DataItemModel> imageData;
+    public LiveData<DataItemModel> getImageData() {
+        return imageData;
+    }
+
+    public void loadRandomImage() {
+        dataRepository.getRandomData().observeForever(dataItemModel -> {
+            if (dataItemModel != null) {
+                imageData.setValue(dataItemModel);
+                Log.d("DataViewModel", "Image loaded successfully");
+            } else {
+                Log.e("DataViewModel", "Image data is null");
+            }
+        });
     }
 }

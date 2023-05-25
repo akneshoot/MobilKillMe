@@ -65,6 +65,8 @@ public class NewFragment extends Fragment {
     private ImageView image1;
     private ImageView image2;
 
+    private ImageView image3;
+
 
 
     public NewFragment() {
@@ -88,6 +90,25 @@ public class NewFragment extends Fragment {
         loadDogAkitaImage();
         image2 = view.findViewById(R.id.image2);
         loadDogRedBoneImage();
+        image3 = view.findViewById(R.id.image3);
+        View button = view.findViewById(R.id.button1);
+
+        viewModel = new ViewModelProvider(this).get(Mymodel.class);
+
+        Mymodel finalViewModel = viewModel;
+        button.setOnClickListener(v -> {
+            finalViewModel.loadRandomImage();
+        });
+
+        viewModel.getImageData().observe(getViewLifecycleOwner(), dataItemModel -> {
+            if (dataItemModel != null) {
+                Glide.with(requireContext())
+                        .load(dataItemModel.getUrl())
+                        .into(image3);
+            }
+        });
+
+
 
 
 
@@ -96,8 +117,8 @@ public class NewFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 PlaceholderPost placeholderPost = new PlaceholderPost();
-                placeholderPost.setUserId(465);
-                placeholderPost.setId(546);
+                placeholderPost.setUserId(200);
+                placeholderPost.setId(300);
                 placeholderPost.setBody("A");
                 placeholderPost.setTitle("AHAHA");
 
@@ -190,4 +211,5 @@ public class NewFragment extends Fragment {
         );
         volleyQueue.add(jsonObjectRequest);
     }
+
 }

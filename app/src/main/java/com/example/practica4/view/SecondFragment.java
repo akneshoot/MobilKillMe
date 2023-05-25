@@ -10,15 +10,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.practica4.R;
 import com.example.practica4.view.Adapter;
 import com.example.practica4.viewmodel.List;
+import com.example.practica4.viewmodel.NetworkService;
+import com.example.practica4.viewmodel.PlaceholderPost;
 
 import java.util.ArrayList;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class SecondFragment extends Fragment {
@@ -90,10 +96,7 @@ public class SecondFragment extends Fragment {
 
         listView1 = getView().findViewById(R.id.list_view_1);
 
-        for (int i = 0; i <= 199; i++) {
-            random_number = (int) (Math.random() * 8);
-            arrayList.add(new List(set_of_images[random_number], set_of_titles[random_number], set_of_buttons[random_number]));
-        }
+
 
 
 
@@ -110,6 +113,7 @@ public class SecondFragment extends Fragment {
                 Toast.makeText(getActivity(), "Нажато " + pos + " слово", Toast.LENGTH_SHORT).show();
             }
         });
+
 
 
     }
