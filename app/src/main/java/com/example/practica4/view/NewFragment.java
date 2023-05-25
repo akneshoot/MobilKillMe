@@ -70,7 +70,6 @@ public class NewFragment extends Fragment {
 
 
     public NewFragment() {
-        // Required empty public constructor
     }
 
     @Override
